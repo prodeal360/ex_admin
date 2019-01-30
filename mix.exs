@@ -38,25 +38,25 @@ defmodule ExAdmin.Mixfile do
 
   defp deps do
     [
-      {:decimal, "~> 1.0"},
-      {:phoenix, "~> 1.3.0-rc"},
-      {:phoenix_html, "~> 2.6"},
-      {:ecto, "~> 2.1"},
-      {:phoenix_ecto, "~> 3.2"},
-      {:postgrex, "~> 0.13", only: :test},
-      {:floki, "~> 0.8", only: :test},
-      {:cowboy, "~> 1.0"},
-      {:inflex, "~> 1.7"},
-      {:scrivener_ecto, "~> 1.1"},
-      {:xain, "~> 0.6"},
+      {:cowboy, "~> 1.1"},
       {:csvlixir, "~> 1.0.0"},
-      {:exactor, "~> 2.2.0"},
-      {:ex_doc, "~> 0.11", only: :dev},
+      {:decimal, "~> 1.0"},
       {:earmark, "~> 0.1", only: :dev},
+      {:ecto, "~> 2.2"},
+      {:ex_doc, "~> 0.11", only: :dev},
       {:ex_queb, "~> 1.0"},
+      {:exactor, "~> 2.2.0"},
       {:excoveralls, "~> 0.5", only: :test},
+      {:floki, "~> 0.8", only: :test},
       {:gettext, "~> 0.11"},
-      {:hound, "~> 1.0", only: :test}
+      {:hound, "~> 1.0", only: :test},
+      {:inflex, "~> 1.7"},
+      {:phoenix, "~> 1.3"},
+      {:phoenix_ecto, "~> 3.6"},
+      {:phoenix_html, "~> 2.12"},
+      {:postgrex, "~> 0.13", only: :test},
+      {:scrivener_ecto, "~> 1.1"},
+      {:xain, "~> 0.6.2"},
     ]
   end
 
