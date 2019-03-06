@@ -503,7 +503,7 @@ defmodule ExAdmin.Form do
   def put_script_block(script_block) do
     if script_block do
       Xain.script type: "text/javascript" do
-        text "\n" <> script_block <> "\n"
+        raw(text "\n" <> script_block <> "\n")
       end
     end
   end
@@ -1487,5 +1487,4 @@ defmodule ExAdmin.Form do
       });
     });
     """
-
 end

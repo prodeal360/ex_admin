@@ -352,6 +352,10 @@ defmodule ExAdmin.Helpers do
     end
   end
 
+  def display_name(resource) when is_binary(resource) do
+    resource
+  end
+
   def display_name(resource) do
     defn = ExAdmin.get_registered(resource.__struct__)
 
