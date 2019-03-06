@@ -13,12 +13,17 @@ defmodule ExAdmin.Schema do
 
   def primary_key(resource) do
     cond do
+      is_binary(resource) ->
+        resource
       Map.get(resource, :__struct__, false) ->
         primary_key resource.__struct__
       true -> :id
     end
   end
 
+  def get_id(resource) when is_binary(resource) do
+    resource
+  end
   def get_id(resource) do
     Map.get(resource, primary_key(resource))
   end
