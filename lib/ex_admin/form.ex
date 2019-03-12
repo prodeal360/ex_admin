@@ -694,7 +694,6 @@ defmodule ExAdmin.Form do
   """
   def build_item(conn, %{type: :input, name: field_name, resource: _resource,
        opts: %{collection: collection}} = item, resource, model_name, error) do
-
     Adminlog.debug "build_item 3: #{inspect field_name}"
 
     # IO.puts "build_item 3: #{inspect field_name}"
@@ -795,6 +794,7 @@ defmodule ExAdmin.Form do
     required = if field_name in (conn.assigns[:ea_required] || []), do: true, else: false
     {html, _id} = wrap_item(resource, field_name, model_name, label, errors, opts, conn.params, required, fn(ext_name) ->
       field_type = opts[:type] || field_type(resource, field_name)
+
       [
         build_control(field_type, resource, opts, model_name, field_name, ext_name),
         build_errors(errors, opts[:hint])
@@ -1037,7 +1037,7 @@ defmodule ExAdmin.Form do
   end
 
   def build_control(:text, resource, opts, model_name, field_name, ext_name) do
-    value = Map.get(resource, field_name, "") |> escape_value
+    value = Map.get(resource, field_name, "")
     options = opts
     |> Map.put(:class, "form-control")
     |> Map.put_new(:name, "#{model_name}[#{field_name}]")
@@ -1105,10 +1105,10 @@ defmodule ExAdmin.Form do
     value = ExAdmin.Render.to_string(value)
     Map.put_new(opts, :type, field_type)
     |> Map.put(:class, "form-control")
-    |> Map.put_new(:maxlength, "255")
+    # |> Map.put_new(:maxlength, "255")
     |> Map.put_new(:name, "#{model_name}[#{field_name}]")
     |> Map.put_new(:id, ext_name)
-    |> Map.put_new(:value, value |> escape_value)
+    |> Map.put_new(:value, value)
     |> Map.delete(:display)
     |> Map.to_list
     |> Xain.input
